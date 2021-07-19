@@ -5,6 +5,4 @@ RUN apt-get update \
     zip \
     default-jdk \
  && apt-get clean
-COPY . /data/
-WORKDIR /data
 
