@@ -19,3 +19,28 @@ arm:
     - docker-build
   script:
     - make gapps_arm
+  artifacts:
+    paths:
+      - out/
+
+arm64:
+  stage: build
+  image: $CI_REGISTRY_IMAGE
+  needs:
+    - docker-build
+  script:
+    - make gapps_arm64
+  artifacts:
+    paths:
+      - out/
+
+x86:
+  stage: build
+  image: $CI_REGISTRY_IMAGE
+  needs:
+    - docker-build
+  script:
+    - make gapps_x86
+  artifacts:
+    paths:
+      - out/
