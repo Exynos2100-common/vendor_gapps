@@ -1,6 +1,6 @@
 # Download Links
 
-* [arm](/-/jobs/artifacts/rho/browse?job=arm)
+* [arm](./-/jobs/artifacts/rho/browse?job=arm)
 
 # vendor_gapps
 
