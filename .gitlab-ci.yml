@@ -21,7 +21,8 @@ arm:
     - make gapps_arm
   artifacts:
     paths:
-      - out/
+      - out/*.zip
+      - out/*.zip.md5sum
 
 arm64:
   stage: build
@@ -30,9 +31,11 @@ arm64:
     - docker-build
   script:
     - make gapps_arm64
+    - mv out/*.zip out/*.zip.md5sum ./
   artifacts:
     paths:
-      - out/
+      - *.zip
+      - *.zip.md5sum
 
 x86:
   stage: build
