@@ -34,8 +34,8 @@ arm64:
     - mv out/*.zip out/*.zip.md5sum ./
   artifacts:
     paths:
-      - *.zip
-      - *.zip.md5sum
+      - "*.zip"
+      - "*.zip.md5sum"
 
 x86:
   stage: build
