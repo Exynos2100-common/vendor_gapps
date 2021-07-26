@@ -4,8 +4,6 @@ stages:          # List of stages for jobs, and their order of execution
 arm:
   stage: build
   image: debian
-  needs:
-    - docker-build
   script:
     - apt-get update && apt-get install -y build-essential zip default-jdk
     - make gapps_arm
