@@ -1,23 +1,13 @@
 stages:          # List of stages for jobs, and their order of execution
-  - pre-build
   - build
   
-docker-build:       # This job runs in the build stage, which runs first.
-  stage: pre-build
-  image: docker:latest
-  services:
-    - docker:dind
-  script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
-    - docker build -t $CI_REGISTRY_IMAGE .
-    - docker push $CI_REGISTRY_IMAGE
-
 arm:
   stage: build
-  image: $CI_REGISTRY_IMAGE
+  image: debian
   needs:
     - docker-build
   script:
+    - apt-get update && apt-get install -y build-essential zip default-jdk
     - make gapps_arm
     - mv out/*.zip out/*.zip.md5sum ./
   artifacts:
@@ -27,10 +17,11 @@ arm:
 
 arm64:
   stage: build
-  image: $CI_REGISTRY_IMAGE
+  image: debian
   needs:
     - docker-build
   script:
+    - apt-get update && apt-get install -y build-essential zip default-jdk
     - make gapps_arm64
     - mv out/*.zip out/*.zip.md5sum ./
   artifacts:
@@ -40,10 +31,11 @@ arm64:
 
 x86:
   stage: build
-  image: $CI_REGISTRY_IMAGE
+  image: debian
   needs:
     - docker-build
   script:
+    - apt-get update && apt-get install -y build-essential zip default-jdk
     - make gapps_x86
     - mv out/*.zip out/*.zip.md5sum ./
   artifacts:
