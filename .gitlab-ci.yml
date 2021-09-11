@@ -1,0 +1,38 @@
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  
+arm:
+  stage: build
+  image: debian
+  script:
+    - apt-get update && apt-get install -y build-essential zip default-jdk
+    - make gapps_arm
+    - mv out/*.zip out/*.zip.md5sum ./
+  artifacts:
+    paths:
+      - "*.zip"
+      - "*.zip.md5sum"
+
+arm64:
+  stage: build
+  image: debian
+  script:
+    - apt-get update && apt-get install -y build-essential zip default-jdk
+    - make gapps_arm64
+    - mv out/*.zip out/*.zip.md5sum ./
+  artifacts:
+    paths:
+      - "*.zip"
+      - "*.zip.md5sum"
+
+x86:
+  stage: build
+  image: debian
+  script:
+    - apt-get update && apt-get install -y build-essential zip default-jdk
+    - make gapps_x86
+    - mv out/*.zip out/*.zip.md5sum ./
+  artifacts:
+    paths:
+      - "*.zip"
+      - "*.zip.md5sum"

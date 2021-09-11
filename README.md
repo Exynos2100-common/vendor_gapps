@@ -2,6 +2,12 @@
 
 **GApps for android devices**
 
+## Download Links
+
+* [arm](https://gitlab.com/MindTheGapps/vendor_gapps/-/jobs/artifacts/rho/download?job=arm)
+* [arm64](https://gitlab.com/MindTheGapps/vendor_gapps/-/jobs/artifacts/rho/download?job=arm64)
+* [x86](https://gitlab.com/MindTheGapps/vendor_gapps/-/jobs/artifacts/rho/download?job=x86)
+
 Build standalone zips
 -------------------
 
