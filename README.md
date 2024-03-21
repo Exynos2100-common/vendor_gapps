@@ -2,6 +2,11 @@
 
 **GApps for android devices**
 
+Presentation
+-------------------
+
+(explain particularity of that GApps package, difference with other popular ones)
+
 Build standalone zips
 -------------------
 
