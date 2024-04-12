@@ -92,6 +92,12 @@ printf '\n%s\n' "\$(call inherit-product, vendor/gapps/common/common-vendor.mk)"
 
 sed -i 's/TARGET_DEVICE/TARGET_ARCH/g' "$ANDROIDMK"
 
+# Lineage extract files do not currently support x86 modules
+if [ "$DEVICE" == "x86" -o "$DEVICE" == "x86_64" ]; then
+    sed -i 's/android_arm64/android_x86_64/g' "$ANDROIDBP"
+    sed -i 's/android_arm/android_x86/g' "$ANDROIDBP"
+fi
+
 # We are done with target
 write_footers
 
