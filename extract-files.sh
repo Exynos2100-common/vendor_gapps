@@ -20,6 +20,7 @@ set -e
 
 export GAPPS_COMMON=common
 export VENDOR=gapps
+export TARGET_ENABLE_CHECKELF=true
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
